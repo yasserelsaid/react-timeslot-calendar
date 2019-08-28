@@ -14,7 +14,7 @@ export default class Calendar extends React.Component {
     this._updateRenderDays(this.props.renderDays);
 
     this.state = {
-      currentDate: moment(props.initialDate),
+      currentDate: props.currentDate ? moment(props.currentDate) : moment(props.initialDate), // Fall currentDate back to initialDate for backcompatability
       selectedTimeslots: [],
     };
   }
@@ -265,7 +265,8 @@ Calendar.defaultProps = {
 };
 
 /**
- * @type {String} initialDate:  The initial date in which to place the calendar. Must be MomentJS parseable.
+ * @type {String} currentDate:  The initial date in which to place the calendar. Must be MomentJS parseable.
+ * @type {String} initialDate:  The earliest selectable date in the calendar. Must be MomentJS parseable.
  * @type {Array} timeslots:  An array of timeslots to be displayed in each day.
  * @type {Object} timeslotProps: An object with keys and values for timeslot props (format, viewFormat)
  * @type {Array} selectedTimeslots: Initial value for selected timeslot inputs. Expects Dates formatted as Strings.
@@ -276,6 +277,7 @@ Calendar.defaultProps = {
  * @type {Object} endDateInputProps: properties for the endDate Inputs. Includes name, class, type (hidden, text...)
  */
 Calendar.propTypes = {
+  currentDate: PropTypes.string.isRequired,
   initialDate: PropTypes.string.isRequired,
   timeslots: PropTypes.array.isRequired,
   timeslotProps: PropTypes.object,

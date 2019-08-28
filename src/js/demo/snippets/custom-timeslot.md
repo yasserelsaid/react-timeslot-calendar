@@ -1,6 +1,7 @@
 ```js
 <ReactTimeslotCalendar
-    initialDate = { moment([2017, 3, 24]).format() }
+    currentDate = { moment([2019, 4, 1]).format() }
+    initialDate = { moment([2019, 3, 24]).format() }
     timeslots = { [
         ['9', '10'],
         ['10', '11'],
