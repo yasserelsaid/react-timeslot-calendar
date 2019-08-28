@@ -34,7 +34,7 @@
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.4",
-    "enzyme": "3.10.0",
+    "enzyme": "^3.10.0",
     "eslint": "^3.19.0",
     "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-react": "^7.0.1",
@@ -45,9 +45,9 @@
     "marked": "^0.3.6",
     "node-sass": "^4.5.3",
     "prop-types": "^15.5.10",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-test-renderer": "16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-test-renderer": "^16.9.0",
     "sass-loader": "^6.0.5",
     "sinon": "^2.3.2",
     "style-loader": "^0.18.1",
@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "calendarjs": "^0.1.0",
-    "enzyme-adapter-react-16": "1.14.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "moment": "^2.18.1"
   },
   "peerDependencies": {
