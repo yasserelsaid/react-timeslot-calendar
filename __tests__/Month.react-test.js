@@ -5,7 +5,11 @@ import moment from 'moment';
 import Calendar from 'calendarjs';
 import {
   mount,
+  configure,
 } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter(), disableLifecycleMethods: true });
+
 import Month from '../src/js/components/month';
 import helpers from '../src/js/util/helpers';
 

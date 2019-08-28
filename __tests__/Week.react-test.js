@@ -6,7 +6,10 @@ import Calendar from 'calendarjs';
 import {
   shallow,
   mount,
+  configure,
 } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 import Week from '../src/js/components/week';
 import Day from '../src/js/components/day';
@@ -18,6 +21,7 @@ import {
   DEFAULT_TIMESLOT_FORMAT,
   DEFAULT_TIMESLOT_SHOW_FORMAT,
 } from '../src/js/constants/day';
+
 
 const cal = new Calendar(2017, 4);
 

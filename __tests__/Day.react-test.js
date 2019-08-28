@@ -5,7 +5,11 @@ import moment from 'moment';
 import {
   shallow,
   mount,
+  configure,
 } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter(), disableLifecycleMethods: true });
+
 import Day from '../src/js/components/day';
 import Timeslot from '../src/js/components/timeslot';
 import {

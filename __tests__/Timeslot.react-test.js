@@ -5,7 +5,10 @@ import Timeslot from '../src/js/components/timeslot';
 import {
   shallow,
   mount,
+  configure,
 } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 import {
   DEFAULT,
