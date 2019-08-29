@@ -15,7 +15,7 @@ export default class Calendar extends React.Component {
 
     this.state = {
       currentDate: props.currentDate ? moment(props.currentDate) : moment(props.initialDate), // Fall currentDate back to initialDate for backcompatability
-      selectedTimeslots: [],
+      selectedTimeslots: props.selectedTimeslots || [],
     };
   }
 
