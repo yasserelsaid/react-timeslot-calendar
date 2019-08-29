@@ -76,8 +76,15 @@ export default class Day extends React.Component {
       });
 
       const isDisabled = disabledTimeslots.some((disabledTimeslot) => {
-        return disabledTimeslot.startDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '[)') ||
-               disabledTimeslot.endDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '(]');
+        //If the startDate is the same as the endDate, just compare startDates to see if it should be disabled
+        if (timeslotDates.startDate.isSame(timeslotDates.endDate)){
+          return disabledTimeslot.startDate.isSame(timeslotDates.startDate);
+        }
+        else {
+          return disabledTimeslot.startDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '[)') ||
+            disabledTimeslot.endDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '(]');
+        }
+
       });
 
       if (isDisabled) {
