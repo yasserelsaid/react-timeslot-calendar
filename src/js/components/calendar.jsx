@@ -246,17 +246,10 @@ export default class Calendar extends React.Component {
     this.renderDays = Object.assign({}, defaultRenderDays, renderDays);
   }
 
-  _updateCurrentDate(currentDate) {
-    this.setState({
-      currentDate: moment(currentDate),
-    });
-  }
-
   UNSAFE_componentWillReceiveProps(nextProps) { //eslint-disable-line camelcase
     this._updateInputProps(nextProps.startDateInputProps, nextProps.endDateInputProps);
     this._updateTimeslotProps(nextProps.timeslotProps);
     this._updateRenderDays(nextProps.renderDays);
-    this._updateCurrentDate(nextProps.currentDate);
   }
 
 }
