@@ -23,9 +23,9 @@ export default class Day extends React.Component {
     });
 
     return (
-      <div className = { dayClassNames }>
-        { this._renderTitle() }
-        { this._renderTimeSlots() }
+      <div className={dayClassNames}>
+        {this._renderTitle()}
+        {this._renderTimeSlots()}
       </div>
     );
   }
@@ -33,13 +33,16 @@ export default class Day extends React.Component {
   _renderTitle() {
     const {
       renderTitle,
+      renderDay,
       momentTime,
     } = this.props;
 
     return (
-      <div className = "tsc-day__title">
-        <span>{renderTitle(momentTime)}</span>
-      </div>
+      <span className="tsc-day__title">
+        {renderTitle(momentTime)}
+        <br />
+        {renderDay(momentTime)}
+      </span>
     );
   }
 
@@ -55,9 +58,9 @@ export default class Day extends React.Component {
 
     return timeslots.map((slot, index) => {
       let description = '';
-      for (let i = 0; i < slot.length; i ++){
+      for (let i = 0; i < slot.length; i++) {
         description += moment(slot[i], timeslotProps.format).format(timeslotProps.showFormat);
-        if (i < (slot.length - 1)){
+        if (i < (slot.length - 1)) {
           description += ' - ';
         }
       }
@@ -77,7 +80,7 @@ export default class Day extends React.Component {
 
       const isDisabled = disabledTimeslots.some((disabledTimeslot) => {
         return disabledTimeslot.startDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '[)') ||
-               disabledTimeslot.endDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '(]');
+          disabledTimeslot.endDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '(]');
       });
 
       if (isDisabled) {
@@ -90,10 +93,10 @@ export default class Day extends React.Component {
 
       return (
         <Timeslot
-          key = { index }
-          description = { description }
-          onClick = { this._onTimeslotClick.bind(this, index) }
-          status = { status }
+          key={index}
+          description={description}
+          onClick={this._onTimeslotClick.bind(this, index)}
+          status={status}
         />
       );
     });
@@ -120,7 +123,10 @@ Day.defaultProps = {
   timeslotFormat: DEFAULT_TIMESLOT_FORMAT,
   timeslotShowFormat: DEFAULT_TIMESLOT_SHOW_FORMAT,
   renderTitle: (momentTime) => {
-    return momentTime.format('dddd (D)');
+    return momentTime.format('dddd');
+  },
+  renderDay: (momentTime) => {
+    return momentTime.format('(D)');
   },
 };
 
@@ -144,6 +150,7 @@ Day.propTypes = {
   timeslotFormat: PropTypes.string.isRequired,
   timeslotShowFormat: PropTypes.string.isRequired,
   onTimeslotClick: PropTypes.func.isRequired,
+  renderDay: PropTypes.func.isRequired,
   renderTitle: PropTypes.func.isRequired,
   momentTime: PropTypes.object.isRequired,
   initialDate: PropTypes.object.isRequired,
