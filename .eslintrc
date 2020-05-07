@@ -1,5 +1,9 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jest/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -7,21 +11,59 @@
       "jsx": true
     }
   },
-  "plugins": ["react", "jest"],
+  "plugins": [
+    "react",
+    "jest"
+  ],
   "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "no-cond-assign": ["error", "always"],
-    "no-unused-vars": ["error", {"argsIgnorePattern": "state|action|dispatch"}],
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-cond-assign": [
+      "error",
+      "always"
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "state|action|dispatch"
+      }
+    ],
     "no-console": "off",
     "no-extra-boolean-cast": "off",
     "camelcase": 2,
-    "comma-dangle": ["error", "always-multiline"],
-    "keyword-spacing": ["error", { "after": true, "before": true }],
-    "react/jsx-curly-spacing": ["error", "always"],
-    "react/jsx-equals-spacing": ["error", "always"]
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "after": true,
+        "before": true
+      }
+    ],
+    "react/jsx-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "react/jsx-equals-spacing": [
+      "error",
+      "always"
+    ]
   },
   "globals": {
     "document": true,
