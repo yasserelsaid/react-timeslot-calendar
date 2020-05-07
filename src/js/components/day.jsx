@@ -23,9 +23,9 @@ export default class Day extends React.Component {
     });
 
     return (
-      <div className={dayClassNames}>
-        {this._renderTitle()}
-        {this._renderTimeSlots()}
+      <div className = { dayClassNames }>
+        { this._renderTitle() }
+        { this._renderTimeSlots() }
       </div>
     );
   }
@@ -38,9 +38,9 @@ export default class Day extends React.Component {
     } = this.props;
 
     return (
-      <span className="tsc-day__title">
+      <span className = "tsc-day__title">
         {renderTitle(momentTime)}
-        <br />
+        <br/>
         {renderDay(momentTime)}
       </span>
     );
@@ -58,9 +58,9 @@ export default class Day extends React.Component {
 
     return timeslots.map((slot, index) => {
       let description = '';
-      for (let i = 0; i < slot.length; i++) {
+      for (let i = 0; i < slot.length; i ++){
         description += moment(slot[i], timeslotProps.format).format(timeslotProps.showFormat);
-        if (i < (slot.length - 1)) {
+        if (i < (slot.length - 1)){
           description += ' - ';
         }
       }
@@ -80,7 +80,7 @@ export default class Day extends React.Component {
 
       const isDisabled = disabledTimeslots.some((disabledTimeslot) => {
         return disabledTimeslot.startDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '[)') ||
-          disabledTimeslot.endDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '(]');
+               disabledTimeslot.endDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '(]');
       });
 
       if (isDisabled) {
@@ -93,10 +93,10 @@ export default class Day extends React.Component {
 
       return (
         <Timeslot
-          key={index}
-          description={description}
-          onClick={this._onTimeslotClick.bind(this, index)}
-          status={status}
+          key = { index }
+          description = { description }
+          onClick = { this._onTimeslotClick.bind(this, index) }
+          status = { status }
         />
       );
     });
