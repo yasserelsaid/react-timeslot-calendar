@@ -39,13 +39,14 @@ render() {
 ### Optional
 * **timeslots** (`Object`): An array of available timeslots in the format:
 ```js
-let timeslots = [
-    ['1', '2'], // 1:00 AM - 2:00 AM
-    ['2', '3'], // 2:00 AM - 3:00 AM
-    ['4', '6'], // 4:00 AM - 6:00 AM
-    '5', // 5:00 AM
-    ['4', '6', '7', '8'], // 4:00 AM - 6:00 AM - 7:00AM - 8:00AM
-];
+let  timeslots =  {
+          monday: [['1', '2']], // 1:00 AM - 2:00 AM
+          tuesday: [['1', '2']], // 1:00 AM - 2:00 AM
+          wednesday: ['5'], // 5:00 AM
+          thursday: [['4', '6'],['7', '8']], // 4:00 AM - 6:00 AM - 7:00AM - 8:00AM
+          friday: [['1', '2']], // 1:00 AM - 2:00 AM
+          saturday: [['1', '2']], // 1:00 AM - 2:00 AM
+          sunday: [['1', '2']]} // 1:00 AM - 2:00 AM
 ```
 By default, one hour timeslots from 12:00AM to 11:00PM are provided.
 
