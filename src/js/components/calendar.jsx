@@ -160,7 +160,7 @@ export default class Calendar extends React.Component {
     return disabledTimeslots.map((timeslot) => {
       let timeslotMoment = Object.assign({}, timeslot);
       timeslotMoment.startDate = moment(timeslotMoment.startDate, timeslotMoment.format);
-      timeslotMoment.endDate = moment(timeslotMoment.endDate, timeslotMoment.format);
+      // timeslotMoment.endDate = moment(timeslotMoment.endDate, timeslotMoment.format);
 
       return timeslotMoment;
     });
