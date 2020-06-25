@@ -78,10 +78,12 @@ export default class Day extends React.Component {
         return timeslotDates.startDate.format() === selectedTimeslot.startDate.format();
       });
 
+      // const isDisabled = disabledTimeslots.some((disabledTimeslot) => {
+      //   return disabledTimeslot.startDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '[)')
+      //          || disabledTimeslot.endDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '(]');
+      // });
       const isDisabled = disabledTimeslots.some((disabledTimeslot) => {
-        return disabledTimeslot.startDate.isSame(timeslotDates.startDate)
-        // , timeslotDates.endDate, null, '[)'
-              //  || disabledTimeslot.endDate.isBetween(timeslotDates.startDate, timeslotDates.endDate, null, '(]');
+        return timeslotDates.startDate.format() === disabledTimeslot.startDate.format();
       });
 
       if (isDisabled) {
